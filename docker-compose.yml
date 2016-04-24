@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+    symfony:
+        build: docker/php
+        image: php_symfony:7-fpm
+        container_name: symfony_sandbox
+        working_dir: /srv
+        volumes:
+            - .:/srv
+            - /srv/var/cache
+            - /srv/var/logs
+            - /srv/var/sessions
+        command: php bin/console server:run 0.0.0.0:80
+        environment:
+            - VIRTUAL_HOST=symfony-sandbox.docker
+            - SYMFONY_ENV=dev
+        expose:
+            - "80"
