@@ -1,4 +1,6 @@
-test
-====
+install
+=======
 
-A Symfony project created on January 9, 2017, 11:36 pm.
+    composer require php-tmdb/symfony
+
+

@@ -13,6 +13,10 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $query = new \Tmdb\Model\Search\SearchQuery\MovieSearchQuery();
+        $query->page(1);
+        dump($movie = $this->get('tmdb.search_repository')->searchMovie('matrix', $query));
+
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
